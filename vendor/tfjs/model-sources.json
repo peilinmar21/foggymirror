@@ -1,0 +1,6 @@
+{
+  "detector": "https://tfhub.dev/mediapipe/tfjs-model/handpose_3d/detector/lite/1",
+  "landmarks": "https://tfhub.dev/mediapipe/tfjs-model/handpose_3d/landmark/lite/1",
+  "face-detector": "https://tfhub.dev/mediapipe/tfjs-model/face_detection/short/1",
+  "face-landmarks": "https://tfhub.dev/mediapipe/tfjs-model/face_landmarks_detection/face_mesh/1"
+}

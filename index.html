@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#b6b6b6"><meta name="description" content="A full-screen misted mirror. Write through the fog with your fingertip, tracked locally by your camera."><title>Foggy Mirror</title><link rel="icon" href="data:,"><link rel="stylesheet" href="mirror.css?v=3"><script src="mirror-core.js?v=3" defer></script><script src="vision-client.js?v=3" defer></script><script src="mirror.js?v=3" defer></script>
+</head>
+<body>
+<main id="mirror" aria-label="Full-screen foggy mirror">
+<video id="reflection" autoplay playsinline muted aria-label="Your live mirrored reflection"></video>
+<canvas id="mist" tabindex="0" aria-label="Misted glass. Move your physical index finger in front of the camera to write; curl it to lift. Open your mouth to cover the glass with fog. You can also drag with a mouse or touch, or use the arrow keys."></canvas>
+<div id="fingertips" aria-hidden="true"></div>
+<section id="entry" aria-label="Open your mirror">
+<h1 class="sr-only">Foggy Mirror</h1>
+<button id="start" class="start-button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3"/><path d="m16 10 5-3v10l-5-3"/></svg><span>Open mirror</span></button>
+<p id="entry-help">Move your index finger to write. Open your mouth to fog the glass.</p>
+<p class="privacy">Camera, hand and mouth tracking stay on your device.</p>
+<p id="camera-error" role="alert" hidden></p>
+<button id="without-camera" class="text-button">Just use touch or mouse</button>
+</section>
+<div id="notice" role="status" aria-live="polite"></div>
+<div id="chrome" class="chrome hidden" inert>
+<div class="instruction" id="instructions">Follow your fingertip · Curl it to lift · Open your mouth to bring back the fog</div>
+<div id="tracking-status" class="tracking-status" role="status" aria-live="polite">Camera off</div>
+<nav class="controls" aria-label="Mirror controls">
+<button id="camera-toggle" title="Turn camera on" aria-label="Turn camera on"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3"/><path d="m16 10 5-3v10l-5-3"/></svg></button>
+<button id="tracking-toggle" aria-pressed="true" title="Fingertip tracking is on" aria-label="Turn fingertip tracking off"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 12V5a2 2 0 0 1 4 0v7-2a1.6 1.6 0 0 1 3 0v2-1a1.6 1.6 0 0 1 3 0v5c0 4-3 6-6 6-2 0-4-1-5-3l-4-5c-1-2 1-3 2-2l3 3"/></svg></button>
+<span class="divider"></span>
+<label class="range-control" title="Fingertip stroke width"><span>Touch</span><input id="brush" aria-label="Fingertip stroke width" type="range" min="5" max="26" value="11"></label>
+<label class="range-control" title="Time for the fog to return"><span>Mist</span><input id="return-time" aria-label="Time for the fog to return" type="range" min="15" max="90" value="45"><output id="return-output" for="return-time">45s</output></label>
+<button id="pause" title="Pause returning mist" aria-label="Pause returning mist" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg></button>
+<span class="divider"></span>
+<button id="fresh" title="Fresh mist" aria-label="Cover the mirror with fresh mist"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M2 12h13m4 0h3M5 17h14"/></svg></button>
+<button id="clear" title="Clear the glass" aria-label="Clear all mist from the mirror"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 2 7 7 2-7 2-2 7-2-7-7-2 7-2Z"/></svg></button>
+<button id="fullscreen" title="Full screen" aria-label="Enter full screen"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m8 0h5v-5"/></svg></button>
+</nav></div>
+<button id="show-controls" class="controls-peek" aria-label="Show mirror controls" title="Mirror controls"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg></button>
+</main></body></html>
